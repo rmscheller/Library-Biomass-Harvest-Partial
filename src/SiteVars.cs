@@ -1,5 +1,4 @@
-﻿using Landis.Core;
-using Landis.Library.UniversalCohorts;
+﻿using Landis.Library.UniversalCohorts;
 using Landis.SpatialModeling;
 
 namespace Landis.Library.BiomassHarvest
@@ -15,7 +14,7 @@ namespace Landis.Library.BiomassHarvest
         /// <summary>
         /// Site variable with biomass cohorts
         /// </summary>
-        public static ISiteVar<ISiteCohorts> Cohorts { get; private set; }
+        public static ISiteVar<SiteCohorts> Cohorts { get; private set; }
         //---------------------------------------------------------------------
         /// <summary>
         /// Site variable counting cohorts partially damaged (not removed)
@@ -39,7 +38,7 @@ namespace Landis.Library.BiomassHarvest
         /// </summary>
         public static void Initialize()
         {
-            Cohorts = Model.Core.GetSiteVar<ISiteCohorts>("Succession.UniversalCohorts");
+            Cohorts = Model.Core.GetSiteVar<SiteCohorts>("Succession.UniversalCohorts");
         }
     }
 }

@@ -158,3 +158,4 @@ $RECYCLE.BIN/
 #LANDIS-II
 /src/lib/*.dll
 /src/.vs
+src/library-biomass-harvest.sln
