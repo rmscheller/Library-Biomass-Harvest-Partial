@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <RootNamespace>Landis.Library.BiomassHarvest</RootNamespace>
-    <AssemblyName>Landis.Library.BiomassHarvest-v3</AssemblyName>
-    <AssemblyTitle>Landis.Library.BiomassHarvest-v3</AssemblyTitle>
-    <AssemblyCompany>LANDIS-II Foundation</AssemblyCompany>
-    <AssemblyProduct>Landis.Library.BiomassHarvest-v3</AssemblyProduct>
+    <AssemblyName>Landis.Library.BiomassHarvest-v4</AssemblyName>
+    <AssemblyTitle>Landis.Library.BiomassHarvest-v4</AssemblyTitle>
+	  <AssemblyProduct>Landis.Library.BiomassHarvest-v4</AssemblyProduct>
+	  <AssemblyCompany>LANDIS-II Foundation</AssemblyCompany>
 	  <AssemblyDescription>Harvest Library for LANDIS-II</AssemblyDescription>
-	  <AssemblyVersion>3.4</AssemblyVersion>
-	  <Version>3.4</Version>
-	  <FileVersion>3.4</FileVersion>
+	  <AssemblyVersion>4.0</AssemblyVersion>
+	  <Version>4.0</Version>
+	  <FileVersion>4.0</FileVersion>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/LANDIS-II-Foundation/Library-Biomass-Harvest</RepositoryUrl>
@@ -32,10 +32,10 @@ Extension Biomass Harvest is found at: (https://github.com/LANDIS-II-Foundation/
   
   <ItemGroup>
     <Reference Include="Landis.Library.SiteHarvest-v2">
-      <HintPath>lib\Landis.Library.SiteHarvest-v2.dll</HintPath>
+      <HintPath>lib\Landis.Library.SiteHarvest-v3.dll</HintPath>
     </Reference>
     <Reference Include="Landis.Library.UniversalCohorts-v1">
-      <HintPath>lib\Landis.Library.UniversalCohorts-v1.dll</HintPath>
+      <HintPath>lib\Landis.Library.UniversalCohorts-v2.dll</HintPath>
     </Reference>
   </ItemGroup>
   

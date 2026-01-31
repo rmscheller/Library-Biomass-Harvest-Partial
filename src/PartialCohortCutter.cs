@@ -45,25 +45,25 @@ namespace Landis.Library.BiomassHarvest
 
         //---------------------------------------------------------------------
 
-        int IDisturbance.ReduceOrKillMarkedCohort(ICohort cohort)
+        double IDisturbance.ReduceOrKillMarkedCohort(ICohort cohort)
         {
-            int reduction = 0;
+            double fractionReduction = 0.0;
             SpecificAgesCohortSelector specificAgeCohortSelector;
             if (partialCohortSelectors.TryGetValue(cohort.Species, out specificAgeCohortSelector))
             {
                 Percentage percentage;
                 if (specificAgeCohortSelector.Selects(cohort, out percentage))
-                    reduction = (int)(percentage * cohort.Data.Biomass);
+                    fractionReduction = (double)(percentage);  //* cohort.Data.Biomass);
             }
-            if (reduction > 0)
+            if (fractionReduction > 0)
             {
                 cohortCounts.IncrementCount(cohort.Species);
-                if (reduction < cohort.Data.Biomass)
+                if (fractionReduction < 1.0) //cohort.Data.Biomass)
                     partialCohortCounts.IncrementCount(cohort.Species);
             }
 
-            Record(reduction, cohort);
-            return reduction;
+            Record(fractionReduction, cohort);
+            return fractionReduction;
         }
 
         //---------------------------------------------------------------------
@@ -109,16 +109,16 @@ namespace Landis.Library.BiomassHarvest
         /// <summary>
         /// Records the amount a cohort's biomass was cut (reduced).
         /// </summary>
-        protected void Record(int     reduction,
+        protected void Record(double     fractionReduction,
                               ICohort cohort)
         {
-            SiteBiomass.RecordHarvest(cohort.Species, reduction);
+            SiteBiomass.RecordHarvest(cohort.Species, ((int) fractionReduction * cohort.Data.Biomass));
             if (isDebugEnabled)
                 log.DebugFormat("    {0}, age {1}, biomass {2} : reduction = {3}",
                                 cohort.Species.Name,
                                 cohort.Data.Age,
                                 cohort.Data.Biomass,
-                                reduction);
+                                fractionReduction);
         }
     }
 }
